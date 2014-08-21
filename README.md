@@ -21,7 +21,7 @@ From command line:
 
 The following parameters are added to package.json when you run `appnostic init`
 
-  - `apps`: *list* containing one to many *string*s 
+  - `apps`: *list* containing one to many strings. 
   - `html`: *string* representing the location of your HTML directory.
   - `css`: *string* representing the location of your CSS directory.
   - `js`: *string* representing the location of your JS directory.
