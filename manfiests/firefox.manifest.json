@@ -1,26 +1,23 @@
 {
-  // Required
-  "name":"",
-  "description":"",
-  "icons":"",
+  "name":"", // cross
+  "description":"", // cross
+  "default_locale":"", // cross
+  "permissions":"", // cross
+  "version":"", // cross
+  "developer":"", // cross (author in chrome)
+  "icons":"", // cross
   "activities":"",
   "appcache_path":"",
   "chrome":"",
   "csp":"",
-  "default_locale":"",
-  "description":"",
-  "developer":"",
   "fullscreen":"",
   "installs_allowed_from":"",
   "launch_path":"",
   "locales":"",
   "messages":"",
-  "name":"",
   "orientation":"",
   "origin":"",
-  "permissions":"",
   "precompile":"",
   "redirects":"",
-  "type":"",
-  "version":""
+  "type":""
 }
