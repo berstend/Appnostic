@@ -5,4 +5,4 @@ Demonstrates building Chrome and FireFox *Hello, World* apps with Appnostic from
 
 **Example**
 
-`apnostic`
+`apnostic build`

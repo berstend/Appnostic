@@ -11,9 +11,11 @@ Easily transform your HTML, CSS, JS files into a web app capable of support by W
 ## Usage
 -----
 
-`appnostic init`
+From command line:
 
-This will ask for a series of parameters which will then be added to your package.json file.
+`appnostic init` This will ask for a series of parameters which will then be added to your package.json file.
+
+`appnostic build` Build according to appnostic parameters entered in the previous step.
 
 ### Build parameters
 
