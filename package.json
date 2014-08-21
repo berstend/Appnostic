@@ -1,0 +1,46 @@
+{
+  "name": "Appnostic",
+  "version": "0.0.0",
+  "description": "Easily transform your HTML, CSS, JS files into a web app capable of support by Windows 8, Chrome and FireFox.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/curlee/Appnostic.git"
+  },
+  "keywords": [
+    "firefox",
+    "chrome",
+    "html",
+    "css",
+    "js",
+    "webapp",
+    "app",
+    "web",
+    "app"
+  ],
+  "author": "Joe Curlee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/curlee/Appnostic/issues"
+  },
+  "homepage": "https://github.com/curlee/Appnostic",
+  "devDependencies": {
+    "coffee-script": "^1.7.1",
+    "gulp": "^3.8.7",
+    "gulp-coffee": "^2.1.1",
+    "gulp-coffeelint": "^0.3.3",
+    "gulp-header": "^1.0.5",
+    "gulp-license": "^0.2.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-rimraf": "^0.1.0",
+    "gulp-uglify": "^0.3.1",
+    "run-sequence": "^0.3.6",
+    "underscore": "^1.6.0"
+  }
+}
