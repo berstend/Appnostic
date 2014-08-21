@@ -1,0 +1,26 @@
+{
+  // Required
+  "name":"",
+  "description":"",
+  "icons":"",
+  "activities":"",
+  "appcache_path":"",
+  "chrome":"",
+  "csp":"",
+  "default_locale":"",
+  "description":"",
+  "developer":"",
+  "fullscreen":"",
+  "installs_allowed_from":"",
+  "launch_path":"",
+  "locales":"",
+  "messages":"",
+  "name":"",
+  "orientation":"",
+  "origin":"",
+  "permissions":"",
+  "precompile":"",
+  "redirects":"",
+  "type":"",
+  "version":""
+}
