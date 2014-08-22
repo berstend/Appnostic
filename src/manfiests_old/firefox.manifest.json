@@ -1,11 +1,20 @@
 {
-  "name":"", // cross
-  "description":"", // cross
-  "default_locale":"", // cross
-  "permissions":"", // cross
-  "version":"", // cross
-  "developer":"", // cross (author in chrome)
-  "icons":"", // cross
+  "fields":[
+    "name",
+    "description",
+    "default_locale",
+    "permissions",
+    "version",
+    "developer",
+    ""
+  ],
+  "name":"",
+  "description":"",
+  "default_locale":"",
+  "permissions":"",
+  "version":"",
+  "developer":"",
+  "icons":"",
   "activities":"",
   "appcache_path":"",
   "chrome":"",

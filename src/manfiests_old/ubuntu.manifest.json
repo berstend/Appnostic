@@ -1,0 +1,14 @@
+{
+  "description": "Ubuntu app for example.com",
+  "framework": "ubuntu-sdk-14.04",
+  "hooks": {
+    "example": {
+      "apparmor": "app.json",
+      "desktop": "app.desktop"
+    }
+  },
+  "maintainer": "Joe Blobbs",
+  "name": "com.ubuntu.developer.joe-blobbs.example",
+  "title": "example.com webapp",
+  "version": "0.1"
+}

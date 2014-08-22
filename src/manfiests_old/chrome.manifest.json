@@ -1,4 +1,12 @@
 {
+  // Appnostic
+  "appnostic": {
+    "output": "json",
+    "translate": {
+      "developer": "author"
+    }
+  },
+
   // Required
   "manifest_version": 2,
   "name": "",
