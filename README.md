@@ -1,4 +1,4 @@
-# Appnostic
+#![Appnostic](src/logo.png)
 -----
 
 Easily transform your HTML, CSS, JS files into a web app capable of cross-platform support.
