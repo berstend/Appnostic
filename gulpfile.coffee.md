@@ -1,3 +1,10 @@
+# Gulpfile
+-----
+
+Instructions for Gulp.
+
+Require some libs.
+
     fs = require 'fs'
     gulp = require 'gulp'
     path = require 'path'
@@ -12,10 +19,10 @@
     license = require 'gulp-license'
     pkg = require path.join __dirname, 'package.json'
     require 'coffee-script/register'
-
     manifest = require './src/Manifest'
 
-    # create rooth paths
+Set up some paths
+
     paths =
       manifests:
         root: path.join 'src', 'manifests'
@@ -23,6 +30,10 @@
         root: path.join 'dist'
       assets:
         root: path.join 'src'
+
+## lint_check
+
+Performs lint check on coffeescript files.
 
     gulp.task 'lint_check', ()->
       return gulp.src(
@@ -32,6 +43,10 @@
       ).pipe(
         coffeelint.reporter 'fail'
       )
+
+## compile_coffee
+
+Compile coffeescript into js files.
 
     gulp.task 'compile_coffee', ['lint_check'], ()->
       gulp.src(
@@ -44,30 +59,52 @@
         gulp.dest path.join paths.dist.root
       )
 
-    # Build Appnostic
+
+## build
+
+Build Appnostic.
+
     gulp.task 'build', ['build_manifests'], ()->
       runSequence(
         'compile_coffee'
       )
 
-    # Remove the manifest templates
+## clean_manifests
+
+Remove the manifest templates
+
     gulp.task 'clean_manifests', ()->
+
+Remove json files.
+
       gulp.src(
         path.join(paths.manifests.root, '*.json'), {read:false}
       ).pipe clean()
 
+Remove xml files.
+
       return gulp.src(
         path.join(paths.manifests.root, '*.xml'), {read:false}
       ).pipe clean()
+
+## clean
+
+Remove /dist
 
     gulp.task 'clean', ['clean_manifests'], ()->
       gulp.src(
         path.join(paths.dist.root), {read:false}
       ).pipe clean()
 
-    # Build the manifest templates
+
+## build_manifests
+Build the manifest templates
+
     gulp.task 'build_manifests', ['clean_manifests'], ()->
       m = new manifest
       m.buildAllManifests()
+
+## default
+Calls `build`
 
     gulp.task 'default', ['build']
