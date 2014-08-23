@@ -61,18 +61,16 @@ index.coffee is a coffeescript file, you will be adding a new entry to the manif
 
   **Example 1a.**
 
-    foo = {
+    foo =
       name: 'foo'
       output: 'json'
       fields: [
         'fieldA'
         'fieldB'
       ]
-      translate: {
+      translate:
         'name':'fieldA'
         'description':'fieldB'
-      }
-    }
   
     module.exports = [
       ...
