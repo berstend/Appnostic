@@ -22,10 +22,12 @@ paths =
     root: path.join 'src', 'manifests'
   dist:
     root: path.join 'dist'
+  assets:
+    root: path.join 'src'
 
 gulp.task 'lint_check', ()->
   return gulp.src(
-    path.join paths.assets.root, '*.coffee'
+    path.join paths.assets.root, '**', '*.coffee'
   ).pipe(
     coffeelint()
   ).pipe(
@@ -43,19 +45,21 @@ gulp.task 'compile_coffee', ['lint_check'], ()->
     gulp.dest path.join paths.dist.root, 'appnostic.min.js'
   )
 
-gulp.task 'build', ()->
+# Build Appnostic
+gulp.task 'build', ['build_manifests'], ()->
   runSequence(
     'compile_coffee'
   )
 
+# Remove the manifest templates
 gulp.task 'clean_manifests', ()->
   return gulp.src(
     path.join(paths.manifests.root, '*.json'), {read:false}
   ).pipe clean()
 
+# Build the manifest templates
 gulp.task 'build_manifests', ['clean_manifests'], ()->
-  # create manifests
   m = new manifest man
   m.buildMasterManifest()
 
-gulp.task 'deafult', ['build']
+gulp.task 'default', ['build']

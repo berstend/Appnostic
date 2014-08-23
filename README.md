@@ -1,7 +1,16 @@
 # Appnostic
 -----
 
-Easily transform your HTML, CSS, JS files into a web app capable of support by Windows 8, Chrome and FireFox.
+Easily transform your HTML, CSS, JS files into a web app capable of cross-platform support.
+
+**Supported platforms**
+  - Chrome
+  - FireFox
+
+**Planned support**
+  - Ubuntu
+  - Windows 8
+  - Windows Phone 8
 
 ## Installation
 -----
@@ -27,51 +36,58 @@ The following parameters are added to package.json when you run `appnostic init`
   - `js`: *string* representing the location of your JS directory.
   - `dist`: *string* representing the location of your distrobution directory.
 
-## Brands currently supported
+## Manifests
+-----
 
-  - Chrome
-  - FireFox
-  - Ubuntu
-  - Windows 8
-  - Windows Phone 8
+Manifests are json files containing parameters which are unique to each app service.
+
+### Mainfest templates
+
+Manifest templates are stored in `manifests/*.json` and should be added by modifying the code found at `manifests/index.coffee`
 
 ## Development
 -----
 
-### Adding support for manifests
+### Adding support for services
 
-To add a new manifest, we need only to add a manifest file, everything else will be handled automatically.
+  - Create a new manifest template
+  - Compile all manifest templates
 
-#### Manifest files
+#### Creating a manifest template
 
-Manifest files specify which values from master.manifest.json to use. 
+Edit `manifests/index.coffee` and add a new entry.
 
-Manifest files must follow three rules:
+index.coffee is a coffeescript file, you will be adding a new entry to the manifests array found therein.
 
-  1. Must be stored in the **./manfiests** directory
-  2. Must follow the naming convention **[brand].manifest.json**
-  3. Must contain appnostic build parameters
+  **Example 1a.**
 
-#### Appnostic build parameters
-
-These parameters are vital to the final output of Appnostic builds.
-
-**"format": string**  
-`string` can be: `json` or `xml`
-
-**"translate": {from:to}**  
-`dictionary` translates key to value in compiled manifest.
-
-**Example**
-
-    "appnostic": {
-      "format": "json",
-      "translate": {
-        "developer":"author"
+    foo = {
+      name: 'foo'
+      output: 'json'
+      fields: [
+        'fieldA'
+        'fieldB'
+      ]
+      translate: {
+        'name':'fieldA'
+        'description':'fieldB'
       }
     }
+  
+    manifests.push foo
 
-This would output a json file with the key "developer" swapped for "author"
+Compiling the manifefst templates would produce a new **manifest template** called `manifests/foo.manifest.json` with the following contents:
+
+    {
+      "fieldA": "",
+      "fieldB": ""
+    }
+
+#### Compiling manifest templates
+
+`gulp build_manifests`
+
+This destroys all json files from the manifests template directory, and re-generates them according to the rules found within `manfiests/index.coffee`
 
 ## Notes
 -----
