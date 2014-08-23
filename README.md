@@ -25,8 +25,10 @@ pull request to get your changes merged back into the main branch.
 All main files are written in coffeescript literate, so documentation is
 built-in and viewable by navigating to litcoffee files within github.
 
-See `gulpfile.litcoffee`, `src/Manifest.litcoffee` and `src/Appnostic.litcoffee`
-for more information.
+For more information see
+  - `gulpfile.litcoffee`
+  - `src/Manifest.litcoffee`
+  - `src/Appnostic.litcoffee`
 
 ## Future
 -----
