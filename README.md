@@ -93,5 +93,10 @@ This destroys all json files from the manifests template directory, and re-gener
 ## Notes
 -----
 
-  - [Windows Manifest File Schema](http://goo.gl/BEj7yf)
-  - [Windows Phone 8 manifest file](http://goo.gl/mjmm5c)
+### Windows 8 / Windows Phone 8
+
+Any development surrounding these brands is highly experimental and prone to error.
+
+Visual Studio is the officially recommended solution for app development that is compatable with Windows 8 devices. An open source solution wrapped in a thick membraine of proprietary software. Yet another monoappistic move by Microsoft
+
+[Windows Dev documentation](http://dev.windows.com/en-us/)
