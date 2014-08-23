@@ -1,5 +1,3 @@
-manifest = require 'Manifest'
-
 class Appnostic
   constructor = ()->
 
