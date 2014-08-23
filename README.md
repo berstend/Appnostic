@@ -74,7 +74,10 @@ index.coffee is a coffeescript file, you will be adding a new entry to the manif
       }
     }
   
-    manifests.push foo
+    module.exports = [
+      ...
+      foo
+    ]
 
 Compiling the manifefst templates would produce a new **manifest template** called `manifests/foo.manifest.json` with the following contents:
 
