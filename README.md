@@ -15,18 +15,31 @@ Easily add cross-platform support to your standard web app project.
 ## Installation
 -----
 
-`npm install appnostic`
+`npm install https://github.com/curlee/Appnostic.git`
 
-## Usage
+## Future
 -----
 
-From command line:
+### Usage
+-----
 
-`appnostic init` This will ask for a series of parameters which will then be saved to a file called appnostic.json
+Appnostic allows you to create cross-platform web apps from your existing
+HTML, CSS, JS and image files.
 
-`appnostic build` Build according to appnostic parameters entered in the previous step.
+#### Why Appnostic?
 
-### Build parameters
+  - Integrate a multi-platform directly from your node project.
+  - Use gulp-appnostic to make things even easier on yourself.
+
+#### From command line
+
+`appnostic init` This will ask for a series of parameters which will then be
+saved to a file called appnostic.json
+
+`appnostic build` Build according to appnostic parameters entered in the
+previous step.
+
+#### Build parameters
 
 The following parameters are added to package.json when you run `appnostic init`
 
@@ -41,8 +54,11 @@ The following parameters are added to package.json when you run `appnostic init`
 
 ### Windows 8 / Windows Phone 8
 
-Any development surrounding these brands is highly experimental and prone to error.
+Any development surrounding these brands is highly experimental and prone to
+error.
 
-Visual Studio is the officially recommended solution for app development that is compatable with Windows 8 devices. An open source solution wrapped in a thick membraine of proprietary software. Yet another monoappistic move by Microsoft
+Visual Studio is the officially recommended solution for app development that is
+compatable with Windows 8 devices. An open source solution wrapped in a thick
+membraine of proprietary software. Yet another monoappistic move by Microsoft
 
 [Windows Dev documentation](http://dev.windows.com/en-us/)
