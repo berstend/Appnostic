@@ -13,7 +13,6 @@ license = require 'gulp-license'
 pkg = require path.join __dirname, 'package.json'
 require 'coffee-script/register'
 
-man = require './src/manifests'
 manifest = require './src/Manifest'
 
 # create rooth paths
@@ -59,7 +58,7 @@ gulp.task 'clean_manifests', ()->
 
 # Build the manifest templates
 gulp.task 'build_manifests', ['clean_manifests'], ()->
-  m = new manifest man
+  m = new manifest
   m.buildAllManifests()
 
 gulp.task 'default', ['build']
