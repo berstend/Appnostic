@@ -52,8 +52,12 @@ gulp.task 'build', ['build_manifests'], ()->
 
 # Remove the manifest templates
 gulp.task 'clean_manifests', ()->
-  return gulp.src(
+  gulp.src(
     path.join(paths.manifests.root, '*.json'), {read:false}
+  ).pipe clean()
+
+  return gulp.src(
+    path.join(paths.manifests.root, '*.xml'), {read:false}
   ).pipe clean()
 
 # Build the manifest templates
