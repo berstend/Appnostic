@@ -31,9 +31,9 @@ firefox =
   fields:
     name:''
     description:''
+    version:''
     default_locale:''
     permissions:''
-    version:''
     developer:''
     icons:''
     activities:''
@@ -56,10 +56,10 @@ chrome =
   name: 'chrome'
   output: 'json'
   fields:
-    manifest_version: 2
     name:''
     description:''
     version:''
+    manifest_version: 2
     default_locale:''
     icons: {}
     browser_action: {}
@@ -119,8 +119,68 @@ chrome =
     web_accessible_resources: []
   translate: null
 
+# get rid of default values
+ubuntu =
+  name: 'ubuntu'
+  output: 'json'
+  fields:
+    title: ''
+    description: ''
+    version: ''
+    framework: 'ubuntu-sdk-14.04'
+    hooks:
+      example:
+        apparmor: 'app.json'
+        desktop: 'app.desktop'
+    maintainer: 'Joe Blobbs'
+    name: 'com.ubuntu.developer.joe-blobbs.example'
+  translate: null
+
+windows8 =
+  name: 'windows8'
+  output: 'xml'
+  fields:
+    '@':
+      xmlns:'http://schemas.microsoft.com/appx/2010/manifest'
+    Identity:
+      '@':
+        Name:''
+        Version:''
+        Publisher:''
+    Properties:
+      DisplayName:''
+      PublisherDisplayName:''
+      Logo:''
+    Prerequisites:
+      OSMinVersion:''
+      OSMaxVersionTested:''
+    Resources:[
+      Resource:
+        '@':
+          Language:''
+    ]
+    Applications:
+      Application:
+        '@':
+          Id:''
+          StartPage:''
+        VisualElements:
+          '@':
+            DisplayName:''
+            Description:''
+            Logo:''
+            SmallLogo:''
+            ForegroundText:''
+            BackgroundColor:''
+          SplashScreen:
+            '@':
+              Image:''
+  translate: null
+
 module.exports = [
   master
   firefox
   chrome
+  ubuntu
+  windows8
 ]
