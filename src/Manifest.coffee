@@ -11,25 +11,10 @@ class Manifest
     # build the master manifest
     @manifests = manifests # todo: make this not sutpid
 
-  buildMasterManifest: ()->
-    m = @manifests[0]
-    @buildManifest m.name, m.fields, m.translate, m.output, ()=>
-      # set master manifest
-      master = fs.readFileSync(
-        path.join(
-          'src'
-          'manifests'
-          'master.manifest.json'
-        )
-      )
-      @master = JSON.parse master
-      @buildAllManifests()
-
   buildAllManifests: ()->
     # build the other manifest files
     for m in @manifests
-      if m.name != 'master'
-        @buildManifest m.name, m.fields, m.translate, m.output
+      @buildManifest m.name, m.fields, m.translate, m.output
 
   buildManifest: (name, fields, translate, output, callBack)->
     fileName = path.join 'src', 'manifests', name + '.manifest.json'
@@ -43,12 +28,7 @@ class Manifest
         callBack()
 
   generateData: (fields, translate)->
-    if @master
-      return @transformData(
-        JSON.stringify(@master, fields, 2), translate
-      )
-    else
-      return @transformData JSON.stringify(fields, null, 2), translate
+    return @transformData JSON.stringify(fields, null, 2), translate
 
   transformData: (jsonString, translate)->
     if @translate

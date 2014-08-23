@@ -60,6 +60,6 @@ gulp.task 'clean_manifests', ()->
 # Build the manifest templates
 gulp.task 'build_manifests', ['clean_manifests'], ()->
   m = new manifest man
-  m.buildMasterManifest()
+  m.buildAllManifests()
 
 gulp.task 'default', ['build']
