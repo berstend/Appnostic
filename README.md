@@ -17,6 +17,14 @@ Easily add cross-platform support to your standard web app project.
 
 `npm install https://github.com/curlee/Appnostic.git`
 
+## Development
+
+Fork this repo and choose an existing issue or feature to work on. Do a
+pull request to get your changes merged back into the main branch.
+
+See `gulpfile.litcoffee`, `src/Manifest.litcoffee` and `src/Appnostic.litcoffee`
+for more information.
+
 ## Future
 -----
 
