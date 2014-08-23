@@ -6,7 +6,7 @@ Manifest is responsible for building the Manifest Template files found within
 ## Manifest class
 The main Manifest class.
 
-    # get all required libs
+Get all required libs.
 
     fs = require 'fs'
     path = require 'path'
