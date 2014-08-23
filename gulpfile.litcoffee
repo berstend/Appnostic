@@ -37,7 +37,7 @@ Performs lint check on coffeescript files.
 
     gulp.task 'lint_check', ()->
       return gulp.src(
-        path.join paths.assets.root, '**', '*.coffee.md'
+        path.join paths.assets.root, '**', '*coffee'
       ).pipe(
         coffeelint()
       ).pipe(
@@ -50,7 +50,7 @@ Compile coffeescript into js files.
 
     gulp.task 'compile_coffee', ['lint_check'], ()->
       gulp.src(
-        path.join paths.assets.root, '*.coffee.md'
+        path.join paths.assets.root, '*coffee'
       ).pipe(
         coffee()
       ).pipe(
