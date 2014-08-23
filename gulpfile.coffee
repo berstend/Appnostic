@@ -27,7 +27,7 @@ paths =
 
 gulp.task 'lint_check', ()->
   return gulp.src(
-    path.join paths.assets.root, '**', '*.coffee'
+    path.join paths.assets.root, '**', '*.coffee.md'
   ).pipe(
     coffeelint()
   ).pipe(
@@ -36,13 +36,13 @@ gulp.task 'lint_check', ()->
 
 gulp.task 'compile_coffee', ['lint_check'], ()->
   gulp.src(
-    path.join paths.assets.root, 'Appnostic.coffee'
+    path.join paths.assets.root, '*.coffee.md'
   ).pipe(
     coffee()
   ).pipe(
     uglify()
   ).pipe(
-    gulp.dest path.join paths.dist.root, 'appnostic.min.js'
+    gulp.dest path.join paths.dist.root
   )
 
 # Build Appnostic
