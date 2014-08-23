@@ -1,3 +1,4 @@
+fs = require 'fs'
 gulp = require 'gulp'
 path = require 'path'
 coffee = require 'gulp-coffee'
@@ -10,16 +11,17 @@ runSequence = require 'run-sequence'
 clean = require 'gulp-clean'
 license = require 'gulp-license'
 pkg = require path.join __dirname, 'package.json'
-paths = require 'paths'
-
 require 'coffee-script/register'
 
-paths = {
+man = require './src/manifests'
+manifest = require './src/Manifest'
+
+# create rooth paths
+paths =
+  manifests:
+    root: path.join 'src', 'manifests'
   dist:
     root: path.join 'dist'
-  assets:
-    root: path.join 'src'
-}
 
 gulp.task 'lint_check', ()->
   return gulp.src(
@@ -45,5 +47,15 @@ gulp.task 'build', ()->
   runSequence(
     'compile_coffee'
   )
+
+gulp.task 'clean_manifests', ()->
+  return gulp.src(
+    path.join(paths.manifests.root, '*.json'), {read:false}
+  ).pipe clean()
+
+gulp.task 'build_manifests', ['clean_manifests'], ()->
+  # create manifests
+  m = new manifest man
+  m.buildMasterManifest()
 
 gulp.task 'deafult', ['build']

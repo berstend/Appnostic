@@ -1,41 +1,59 @@
 fs = require 'fs'
 path = require 'path'
-man = require './manifests'
+pkg = require path.join __dirname, '..', 'package.json'
 require 'coffee-script/register'
 
 class Manifest
   manifestSpacing = 2
+  master = null
 
-  constructor: (name, fields, translate, output)->
-    console.log 'Creating manifest for ' + name
-    @fileName = path.join 'manifests', name + '.manifest.json'
-    @fields = fields
-    @translate = translate
-    @output = output
-    
-    master = fs.readFileSync(
-      path.join(
-        'manifests'
-        'master.manifest.json'
+  constructor: (manifests)->
+    # build the master manifest
+    @manifests = manifests # todo: make this not sutpid
+
+  buildMasterManifest: ()->
+    m = @manifests[0]
+    @buildManifest m.name, m.fields, m.translate, m.output, ()=>
+      # set master manifest
+      master = fs.readFileSync(
+        path.join(
+          'src'
+          'manifests'
+          'master.manifest.json'
+        )
       )
-    )
-    @master = JSON.parse master
-    @saveManifest()
+      @master = JSON.parse master
+      @buildAllManifests()
 
-  saveManifest: ()->
-    fs.writeFile @fileName, @generateData(), (err)->
-      throw err if err
+  buildAllManifests: ()->
+    # build the other manifest files
+    for m in @manifests
+      if m.name != 'master'
+        @buildManifest m.name, m.fields, m.translate, m.output
 
-  generateData: ()->
-    return @transformData(JSON.stringify @master, @fields, @manifestSpacing)
+  buildManifest: (name, fields, translate, output, callBack)->
+    fileName = path.join 'src', 'manifests', name + '.manifest.json'
+    
+    @output = output
 
-  transformData: (jsonString)->
+    fs.writeFile fileName, @generateData(fields, translate), (err)->
+      if err
+        throw err
+      else if callBack
+        callBack()
+
+  generateData: (fields, translate)->
+    if @master
+      return @transformData(
+        JSON.stringify(@master, fields, 2), translate
+      )
+    else
+      return @transformData JSON.stringify(fields, null, 2), translate
+
+  transformData: (jsonString, translate)->
     if @translate
       for k,v of @translate
         jsonString = jsonString.replace k, v
     return jsonString
 
-# create manifests
-for b in man
-  if b
-    m = new Manifest b.name, b.fields, b.translate, b.output
+module.exports = Manifest
