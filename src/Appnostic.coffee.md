@@ -11,6 +11,6 @@ The main Appnostic class.
     class Appnostic
       constructor = ()->
 
-Export the module.
+## Export the module
 
     module.exports = Appnostic

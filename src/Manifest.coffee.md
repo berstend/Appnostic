@@ -69,6 +69,6 @@ If requested output is xml
             jsonString = jsonString.replace k, v
         return jsonString
 
-Export the module.
+## Export the module
 
     module.exports = Manifest
