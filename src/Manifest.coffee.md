@@ -3,8 +3,6 @@
 Manifest is responsible for building the Manifest Template files found within
 `src/manifests`
 
-Get all required libs.
-
 ## Manifest class
 The main Manifest class.
 
