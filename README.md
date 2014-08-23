@@ -1,7 +1,7 @@
 #![Appnostic](src/logo.png)
 -----
 
-Easily transform your HTML, CSS, JS files into a web app capable of cross-platform support.
+Easily add cross-platform support to your standard web app project.
 
 **Supported platforms**
   - Chrome
