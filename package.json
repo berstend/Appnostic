@@ -1,12 +1,13 @@
 {
   "name": "Appnostic",
   "version": "0.0.0",
-  "description": "Easily transform your HTML, CSS, JS files into a web app capable of support by Windows 8, Chrome and FireFox.",
+  "description": "Easily transform your HTML, CSS, JS files into a web app capable of cross-platform support.",
   "main": "index.js",
   "directories": {
     "example": "examples"
   },
   "scripts": {
+    "start": "npm install; gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
