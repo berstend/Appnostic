@@ -120,7 +120,7 @@ chrome =
   translate: null
 
 module.exports = [
-  master,
-  firefox,
+  master
+  firefox
   chrome
 ]
