@@ -3,9 +3,6 @@
 Manifest is responsible for building the Manifest Template files found within
 `src/manifests`
 
-## Manifest class
-The main Manifest class.
-
 Get all required libs.
 
     fs = require 'fs'
@@ -15,10 +12,18 @@ Get all required libs.
     manifests = require './manifests'
     require 'coffee-script/register'
 
+## Manifest class
+-----
+
+
+The main Manifest class.
+
     class Manifest
       manifestSpacing = 2 # Number of spaces to use in json manifest templates.
 
 ## Manifest.buildAllManifests
+-----
+
 Loop through all manifests found in manifests/index.coffee.md and generate
 manifest template files.
 
@@ -27,6 +32,8 @@ manifest template files.
           @buildManifest m.name, m.fields, m.translate, m.output
 
 ## Manifest.buildManifest
+-----
+
 Generate an individual manifest template file. Called from `buildAllManifests`
 
       buildManifest: (name, fields, translate, output, callBack)->
@@ -43,6 +50,7 @@ Save the file to disc.
             callBack()
 
 ## Manifest.generateData
+-----
 
 Generates data according to requested format.
 
@@ -59,6 +67,7 @@ If requested output is xml
           return js2xmlparser 'Package', fields
 
 ## Manifest.transformData
+-----
 
       transformData: (jsonString, translate)->
         if @translate
@@ -68,5 +77,6 @@ If requested output is xml
         return jsonString
 
 ## Export the module
+-----
 
     module.exports = Manifest

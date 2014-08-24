@@ -32,6 +32,7 @@ Set up some paths
         root: path.join 'src'
 
 ## lint_check
+-----
 
 Performs lint check on coffeescript files.
 
@@ -45,6 +46,7 @@ Performs lint check on coffeescript files.
       )
 
 ## compile_coffee
+-----
 
 Compile coffeescript into js files.
 
@@ -61,6 +63,7 @@ Compile coffeescript into js files.
 
 
 ## build
+-----
 
 Build Appnostic.
 
@@ -70,6 +73,7 @@ Build Appnostic.
       )
 
 ## clean_manifests
+-----
 
 Remove the manifest templates
 
@@ -88,6 +92,7 @@ Remove xml files.
       ).pipe clean()
 
 ## clean
+-----
 
 Remove /dist
 
@@ -98,6 +103,8 @@ Remove /dist
 
 
 ## build_manifests
+-----
+
 Build the manifest templates
 
     gulp.task 'build_manifests', ['clean_manifests'], ()->
@@ -105,6 +112,8 @@ Build the manifest templates
       m.buildAllManifests()
 
 ## default
+-----
+
 Calls `build`
 
     gulp.task 'default', ['build']
