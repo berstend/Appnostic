@@ -21,7 +21,7 @@ The main Manifest class.
     class Manifest
       manifestSpacing = 2 # Number of spaces to use in json manifest templates.
 
-## Manifest.buildAllManifests
+## buildAllManifests
 -----
 
 Loop through all manifests found in manifests/index.coffee.md and generate
@@ -31,7 +31,7 @@ manifest template files.
         for m in manifests
           @buildManifest m.name, m.fields, m.translate, m.output
 
-## Manifest.buildManifest
+## buildManifest
 -----
 
 Generate an individual manifest template file. Called from `buildAllManifests`
@@ -49,7 +49,7 @@ Save the file to disc.
           else if callBack
             callBack()
 
-## Manifest.generateData
+## generateData
 -----
 
 Generates data according to requested format.
@@ -66,7 +66,7 @@ If requested output is xml
         else if output == 'xml'
           return js2xmlparser 'Package', fields
 
-## Manifest.transformData
+## transformData
 -----
 
       transformData: (jsonString, translate)->
