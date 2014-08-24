@@ -19,7 +19,10 @@ Get all required libs.
 The main Manifest class.
 
     class Manifest
-      manifestSpacing = 2 # Number of spaces to use in json manifest templates.
+
+Number of spaces to use in json manifest templates.
+
+      manifestSpacing = 2
 
 ## buildAllManifests
 -----
@@ -56,12 +59,12 @@ Generates data according to requested format.
 
       generateData: (fields, translate, output)->
 
-If requested output is json
+If requested output is json, stringify the data.
 
         if output == 'json'
           return JSON.stringify(fields, null, 2)
 
-If requested output is xml
+If requested output is xml, convert data to xml.
 
         else if output == 'xml'
           return js2xmlparser 'Package', fields
