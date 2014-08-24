@@ -48,7 +48,7 @@ Performs lint check on coffeescript files.
 ## compile_coffee
 -----
 
-Compile coffeescript into js files.
+Run `lint_check` then compile coffeescript into js files.
 
     gulp.task 'compile_coffee', ['lint_check'], ()->
       gulp.src(
@@ -65,7 +65,7 @@ Compile coffeescript into js files.
 ## build
 -----
 
-Build Appnostic.
+Run `build_manifests` then build Appnostic.
 
     gulp.task 'build', ['build_manifests'], ()->
       runSequence(
@@ -94,7 +94,7 @@ Remove xml files.
 ## clean
 -----
 
-Remove /dist
+Run `clean_manifests` and remove `./dist`
 
     gulp.task 'clean', ['clean_manifests'], ()->
       gulp.src(
@@ -105,7 +105,7 @@ Remove /dist
 ## build_manifests
 -----
 
-Build the manifest templates
+Run `clean_manifests` then build the manifest templates
 
     gulp.task 'build_manifests', ['clean_manifests'], ()->
       m = new manifest
