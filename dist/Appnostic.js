@@ -1,0 +1,1 @@
+(function(){var n;n=function(){function n(){}var o;return o=function(n){return console.log(n)},n}(),module.exports=n}).call(this);
