@@ -12,7 +12,6 @@ Require some libs.
     coffeelint = require 'gulp-coffeelint'
     less = require 'gulp-less'
     uglify = require 'gulp-uglify'
-    minifyCSS = require 'gulp-minify-css'
     jeditor = require 'gulp-json-editor'
     runSequence = require 'run-sequence'
     clean = require 'gulp-clean'
