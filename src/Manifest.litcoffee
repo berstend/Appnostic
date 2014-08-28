@@ -23,6 +23,7 @@ The main Manifest class.
 Number of spaces to use in json manifest templates.
 
       manifestSpacing = 2
+      baseData = {}
 
 ## buildAllManifests
 -----
@@ -30,52 +31,64 @@ Number of spaces to use in json manifest templates.
 Loop through all manifests found in manifests/index.coffee.md and generate
 manifest template files.
 
-      buildAllManifests: ()->
+      buildAllManifests: (translate, callback)->
         for m in manifests
-          @buildManifest m.name, m.fields, m.translate, m.output
+          @buildCompiledManifest m.name, translate, callback
 
-## buildManifest
+## buildCompiledManifest
+-----
+
+      buildCompiledManifest: (appName, baseData, callback)->
+        @baseData = baseData
+        @saveManifest manifests[appName], callback
+
+## saveManifest
 -----
 
 Generate an individual manifest template file. Called from `buildAllManifests`
 
-      buildManifest: (name, fields, translate, output, callBack)->
-        fileName = path.join 'dist', 'manifests', name + '.manifest.' + output
-        
-        @output = output
+      saveManifest: (man, callback)->
+        fileName = path.join(
+          'dist'
+          man.name
+          man.name + '.manifest.' + man.output
+        )
 
-Save the file to disc.
+        data = @transformData @generateData(man), man
 
-        fs.writeFile fileName, @generateData(fields, translate, output), (err)->
+        fs.writeFile fileName, data, (err)->
           if err
             throw err
-          else if callBack
-            callBack()
+          else if callback
+            callback man
 
 ## generateData
 -----
 
 Generates data according to requested format.
 
-      generateData: (fields, translate, output)->
+      generateData: (man)->
 
 If requested output is json, stringify the data.
 
-        if output == 'json'
-          return JSON.stringify(fields, null, 2)
+        if man.output == 'json'
+          return JSON.stringify(man.fields, (k, v)=>
+            if @baseData[k] then return @baseData[k] else return v
+          , 2)
 
 If requested output is xml, convert data to xml.
 
-        else if output == 'xml'
-          return js2xmlparser 'Package', fields
+        else if man.output == 'xml'
+          return js2xmlparser 'Package', man.fields
 
 ## transformData
 -----
 
-      transformData: (jsonString, translate)->
-        if @translate
-          for k,v of @translate
-            fields[k]
+Replaces keys in json string with transform value found in manfiests data.
+
+      transformData: (jsonString, man)->
+        if man.transform
+          for k,v of man.transform
             jsonString = jsonString.replace k, v
         return jsonString
 

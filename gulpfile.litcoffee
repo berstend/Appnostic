@@ -65,37 +65,9 @@ Run `lint_check` then compile coffeescript into js files.
 ## build
 -----
 
-Run `build_manifests` then build Appnostic.
+Build Appnostic.
 
-    gulp.task 'build', ()->
-      runSequence(
-        'clean_manifests'
-        'build_manifests'
-        'compile_coffee'
-      )
-
-
-## clean_manifests
------
-
-Remove the manifest templates
-
-    gulp.task 'clean_manifests', ()->
-
-Remove manifest files.
-
-      return gulp.src(
-        path.join(paths.manifests.root, '*.manifest.*'), {read:false}
-      ).pipe clean()
-
-## build_manifests
------
-
-Run `clean_manifests` then build the manifest templates
-
-    gulp.task 'build_manifests', ()->
-      m = new manifest
-      m.buildAllManifests()
+    gulp.task 'build', ['compile_coffee']
 
 ## default
 -----
