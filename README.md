@@ -36,16 +36,11 @@ For more information see
 ## Future
 -----
 
-### Usage
+### Planned Usage
 -----
 
 Appnostic allows you to create cross-platform web apps from your existing
 HTML, CSS, JS and image files.
-
-#### Why Appnostic?
-
-  - Integrate a multi-platform directly from your node project.
-  - Use gulp-appnostic to make things even easier on yourself.
 
 #### From command line
 
