@@ -58,7 +58,7 @@ The following parameters are added to package.json when you run `appnostic init`
   - `html`: *string* representing the location of your HTML directory.
   - `css`: *string* representing the location of your CSS directory.
   - `js`: *string* representing the location of your JS directory.
-  - `dist`: *string* representing the location of your distrobution directory.
+  - `dist`: *string* representing the location of your distribution directory.
 
 ## Notes
 -----
