@@ -1,0 +1,14 @@
+{
+  "title": "",
+  "description": "",
+  "version": "",
+  "framework": "ubuntu-sdk-14.04",
+  "hooks": {
+    "example": {
+      "apparmor": "app.json",
+      "desktop": "app.desktop"
+    }
+  },
+  "maintainer": "Joe Blobbs",
+  "name": "com.ubuntu.developer.joe-blobbs.example"
+}

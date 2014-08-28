@@ -40,7 +40,7 @@ manifest template files.
 Generate an individual manifest template file. Called from `buildAllManifests`
 
       buildManifest: (name, fields, translate, output, callBack)->
-        fileName = path.join 'src', 'manifests', name + '.manifest.' + output
+        fileName = path.join 'dist', 'manifests', name + '.manifest.' + output
         
         @output = output
 

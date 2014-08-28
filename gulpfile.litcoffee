@@ -27,6 +27,7 @@ Set up some paths
         root: path.join 'src', 'manifests'
       dist:
         root: path.join 'dist'
+        manifests: path.join 'dist', 'manifests'
       assets:
         root: path.join 'src'
 
@@ -66,10 +67,13 @@ Run `lint_check` then compile coffeescript into js files.
 
 Run `build_manifests` then build Appnostic.
 
-    gulp.task 'build', ['build_manifests'], ()->
+    gulp.task 'build', ()->
       runSequence(
+        'clean_manifests'
+        'build_manifests'
         'compile_coffee'
       )
+
 
 ## clean_manifests
 -----
@@ -78,35 +82,18 @@ Remove the manifest templates
 
     gulp.task 'clean_manifests', ()->
 
-Remove json files.
-
-      gulp.src(
-        path.join(paths.manifests.root, '*.json'), {read:false}
-      ).pipe clean()
-
-Remove xml files.
+Remove manifest files.
 
       return gulp.src(
-        path.join(paths.manifests.root, '*.xml'), {read:false}
+        path.join(paths.manifests.root, '*.manifest.*'), {read:false}
       ).pipe clean()
-
-## clean
------
-
-Run `clean_manifests` and remove `./dist`
-
-    gulp.task 'clean', ['clean_manifests'], ()->
-      gulp.src(
-        path.join(paths.dist.root), {read:false}
-      ).pipe clean()
-
 
 ## build_manifests
 -----
 
 Run `clean_manifests` then build the manifest templates
 
-    gulp.task 'build_manifests', ['clean_manifests'], ()->
+    gulp.task 'build_manifests', ()->
       m = new manifest
       m.buildAllManifests()
 
