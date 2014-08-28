@@ -1,0 +1,33 @@
+{
+  "name": "HelloWorld",
+  "version": "0.0.0",
+  "description": "Generic hello world app to test Appnostic.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joe curlee",
+  "license": "MIT",
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "gulp": "^3.8.7",
+    "gulp-coffee": "^2.1.2",
+    "gulp-coffeelint": "^0.3.4",
+    "gulp-less": "^1.3.5",
+    "gulp-minify-css": "^0.3.7",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^0.3.2",
+    "run-sequence": "^0.3.6"
+  },
+  "appnostic": {
+    "apps": [
+      "chrome"
+    ],
+    "html": "dist/html",
+    "css": "dist/css",
+    "js": "dist/js",
+    "images": "dist/images",
+    "dist":"dist",
+    "html_root":"window.html"
+  }
+}
