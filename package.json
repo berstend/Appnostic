@@ -2,7 +2,7 @@
   "name": "Appnostic",
   "version": "0.0.0",
   "description": "Easily add cross-platform support to your standard web app project.",
-  "main": "index.js",
+  "main": "dist/Appnostic.js",
   "directories": {
     "example": "examples"
   },
