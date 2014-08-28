@@ -18,7 +18,7 @@ Easily add cross-platform support to your standard web app project.
 ## Installation
 -----
 
-`npm install https://github.com/curlee/Appnostic.git`
+`npm install git://github.com/curlee/Appnostic.git`
 
 ## Development
 
