@@ -31,19 +31,22 @@ Set up some paths
       assets:
         root: path.join 'src'
 
+## build
+-----
+
+Build Appnostic.
+
+    gulp.task 'build', ['compile_coffee']
+
 ## lint_check
 -----
 
 Performs lint check on coffeescript files.
 
     gulp.task 'lint_check', ()->
-      return gulp.src(
-        path.join paths.assets.root, '**', '*coffee'
-      ).pipe(
-        coffeelint()
-      ).pipe(
-        coffeelint.reporter 'fail'
-      )
+      return gulp.src path.join paths.assets.root, '**', '*coffee'
+      .pipe coffeelint()
+      .pipe coffeelint.reporter 'fail'
 
 ## compile_coffee
 -----
@@ -51,23 +54,11 @@ Performs lint check on coffeescript files.
 Run `lint_check` then compile coffeescript into js files.
 
     gulp.task 'compile_coffee', ['lint_check'], ()->
-      gulp.src(
-        path.join paths.assets.root, '*coffee'
-      ).pipe(
-        coffee()
-      ).pipe(
-        uglify()
-      ).pipe(
-        gulp.dest path.join paths.dist.root
-      )
+      gulp.src path.join paths.assets.root, '*coffee'
+      .pipe coffee()
+      .pipe uglify()
+      .pipe gulp.dest path.join paths.dist.root
 
-
-## build
------
-
-Build Appnostic.
-
-    gulp.task 'build', ['compile_coffee']
 
 ## default
 -----
