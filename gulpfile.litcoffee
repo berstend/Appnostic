@@ -63,7 +63,7 @@ Build Appnostic.
 Build demo app.
 
 Runs deafult gulp task found in
-[examples/a/gulpfile.litcoffee](examples/a/gulpfile.litcoffee)
+[examples/a/gulpfile.litcoffee](examples/a/HelloWorld/gulpfile.litcoffee)
 
     gulp.task 'build_demo', ()->
       gulp.src path.join(__dirname, 'examples', 'a', 'HelloWorld'), {read:false}
