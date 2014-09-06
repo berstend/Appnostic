@@ -21,6 +21,13 @@ Easily add cross-platform support to your standard web app project.
 `npm install git://github.com/curlee/Appnostic.git`
 
 ## Development
+-----
+
+### Installation
+
+`npm start`
+
+This will install all dev requirements and call the deafult gulp task.
 
 Fork this repo and choose an existing issue or feature to work on. Do a
 pull request to get your changes merged back into the main branch.
