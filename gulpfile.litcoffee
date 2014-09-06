@@ -3,6 +3,13 @@
 
 Instructions for Gulp.
 
+## Setup
+-----
+
+Allow this file to run.
+   
+    require 'coffee-script/register'
+
 Require some libs.
 
     fs = require 'fs'
@@ -16,11 +23,11 @@ Require some libs.
     runSequence = require 'run-sequence'
     clean = require 'gulp-clean'
     license = require 'gulp-license'
+    shell = require 'gulp-shell'
     pkg = require path.join __dirname, 'package.json'
-    require 'coffee-script/register'
     manifest = require './src/Manifest'
 
-Set up some paths
+Define the paths.
 
     paths =
       manifests:
@@ -31,14 +38,38 @@ Set up some paths
       assets:
         root: path.join 'src'
 
-## build
+## Tasks
+-----
+
+These are the tasks available to gulp.
+
+### default
+-----
+
+Calls `build`
+
+    gulp.task 'default', ['build']
+
+### build
 -----
 
 Build Appnostic.
 
     gulp.task 'build', ['compile_coffee']
 
-## lint_check
+### build_demo
+-----
+
+Build demo app.
+
+Runs deafult gulp task found in
+[examples/a/gulpfile.litcoffee](examples/a/gulpfile.litcoffee)
+
+    gulp.task 'build_demo', ()->
+      gulp.src path.join(__dirname, 'examples', 'a', 'HelloWorld'), {read:false}
+      .pipe shell [ 'cd <%= file.path %>; gulp' ]
+
+### lint_check
 -----
 
 Performs lint check on coffeescript files.
@@ -48,7 +79,7 @@ Performs lint check on coffeescript files.
       .pipe coffeelint()
       .pipe coffeelint.reporter 'fail'
 
-## compile_coffee
+### compile_coffee
 -----
 
 Run `lint_check` then compile coffeescript into js files.
@@ -58,11 +89,3 @@ Run `lint_check` then compile coffeescript into js files.
       .pipe coffee()
       .pipe uglify()
       .pipe gulp.dest path.join paths.dist.root
-
-
-## default
------
-
-Calls `build`
-
-    gulp.task 'default', ['build']

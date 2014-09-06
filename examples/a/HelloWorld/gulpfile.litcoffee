@@ -3,6 +3,9 @@
 
 Instructions for Gulp.
 
+## Setup
+-----
+
 Allow this file to run.
    
     require 'coffee-script/register'
@@ -22,7 +25,7 @@ Require some libs.
     appnostic = require 'Appnostic'
     pkg = require path.join __dirname, 'package.json'
 
-Set up the paths.
+Define the paths.
 
     paths =
       assets:
@@ -36,7 +39,38 @@ Set up the paths.
         html: path.join 'dist', 'html'
         images: path.join 'dist', 'images'
 
-## lint_check
+## Tasks
+-----
+
+### default
+-----
+
+Compile.
+
+    gulp.task 'default', ['compile']
+
+
+### compile
+-----
+
+    gulp.task 'compile', ()->
+      runSequence [
+        'compile_coffee'
+        'compile_less'
+        'copy_templates'
+        'copy_images'
+        'appnostic'
+      ]
+
+### appnostic
+-----
+
+Compile specified apps.
+
+    gulp.task 'appnostic', ()->
+      a = new appnostic pkg
+
+### lint_check
 -----
 
 Performs lint check on coffeescript files.
@@ -50,7 +84,7 @@ Performs lint check on coffeescript files.
         coffeelint.reporter 'fail'
       )
 
-## compile_coffee
+### compile_coffee
 -----
 
 Run `lint_check` then compile coffeescript into js files.
@@ -66,7 +100,7 @@ Run `lint_check` then compile coffeescript into js files.
         gulp.dest paths.dist.js
       )
 
-## compile_less
+### compile_less
 -----
 
 Compile less files.
@@ -84,7 +118,7 @@ Compile less files.
         gulp.dest paths.dist.css
       )
 
-## copy_templates
+### copy_templates
 -----
 
 Copy templates.
@@ -97,7 +131,7 @@ Copy templates.
         gulp.dest paths.dist.html
       )
 
-## copy_images
+### copy_images
 -----
 
 Copy images.
@@ -109,30 +143,3 @@ Copy images.
       ).pipe(
         gulp.dest paths.dist.images
       )
-
-## appnostic
------
-
-Compile specified apps.
-
-    gulp.task 'appnostic', ()->
-      a = new appnostic pkg
-
-## compile
------
-
-    gulp.task 'compile', ()->
-      runSequence [
-        'compile_coffee'
-        'compile_less'
-        'copy_templates'
-        'copy_images'
-        'appnostic'
-      ]
-
-## default
------
-
-Compile.
-
-    gulp.task 'default', ['compile']

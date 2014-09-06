@@ -24,6 +24,7 @@ Easily add cross-platform support to your standard web app project.
 -----
 
 ### Installation
+-----
 
 `npm start`
 
