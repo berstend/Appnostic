@@ -20,6 +20,15 @@ Easily add cross-platform support to your standard web app project.
 
 `npm install git://github.com/curlee/Appnostic.git`
 
+## Usage
+-----
+
+Add appnostic values to your node project's package.json file.
+
+[See demo package.json for an example.](examples/a/HelloWorld/package.json#L22).
+
+run `appnostic` from the command line.
+
 ## Development
 -----
 
