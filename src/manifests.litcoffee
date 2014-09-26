@@ -200,7 +200,7 @@ by various app services.
 ### Create a new manifest template
 
   1. Add a new data source
-  2. Compile all manifest templates (see gulpfile.coffe.md for more info)
+  2. Compile all manifest templates (see [gulpfile](../gulpfile.litcoffee) for more info)
 
 You can create a new Manfiest Template by inserting your own data here.
 
