@@ -57,17 +57,16 @@ Build Appnostic.
 
     gulp.task 'build', ['compile_coffee']
 
-### build_demo
+### compile_coffee
 -----
 
-Build demo app.
+Run `lint_check` then compile coffeescript into js files.
 
-Runs deafult gulp task found in
-[demo gulpfile.](examples/a/HelloWorld/gulpfile.litcoffee)
-
-    gulp.task 'build_demo', ()->
-      gulp.src path.join(__dirname, 'examples', 'a', 'HelloWorld'), {read:false}
-      .pipe shell [ 'cd <%= file.path %>; gulp' ]
+    gulp.task 'compile_coffee', ['lint_check'], ()->
+      gulp.src path.join paths.assets.root, '*coffee'
+      .pipe coffee()
+      .pipe uglify()
+      .pipe gulp.dest path.join paths.dist.root
 
 ### lint_check
 -----
@@ -79,13 +78,17 @@ Performs lint check on coffeescript files.
       .pipe coffeelint()
       .pipe coffeelint.reporter 'fail'
 
-### compile_coffee
+## Demo tasks
 -----
 
-Run `lint_check` then compile coffeescript into js files.
+### build_demo
+-----
 
-    gulp.task 'compile_coffee', ['lint_check'], ()->
-      gulp.src path.join paths.assets.root, '*coffee'
-      .pipe coffee()
-      .pipe uglify()
-      .pipe gulp.dest path.join paths.dist.root
+Build demo app.
+
+Runs deafult gulp task found in
+[demo gulpfile.](examples/a/HelloWorld/gulpfile.litcoffee)
+
+    gulp.task 'build_demo', ()->
+      gulp.src path.join(__dirname, 'examples', 'a', 'HelloWorld'), {read:false}
+      .pipe shell [ 'cd <%= file.path %>; gulp' ]
